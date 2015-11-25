@@ -9,9 +9,9 @@
 
     "automatic_version_prefix": "rawhide",
 
-    "initramfs-args": ["--no-hostonly", "--add", "iscsi"],
+    "initramfs-args": ["--no-hostonly"],
 
-    "install-langs": ["en_US", "ja_JP"],
+    "install-langs": ["en_US"],
 
     "postprocess-script": "treecompose-post.sh",
 
@@ -22,7 +22,7 @@
     "check-passwd": { "type": "file", "filename": "passwd" },
     "check-groups": { "type": "file", "filename": "group" },
 
-    "packages": ["atomic",
+    "packages": [
      "glibc", "nss-altfiles", "shadow-utils", "sssd-client",
      "fedora-release",
      "dracut-config-generic", "kernel",
