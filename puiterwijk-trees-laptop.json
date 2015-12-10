@@ -67,9 +67,9 @@
      "oddjob-mkhomedir",
      
      "i3", "i3lock", "git", "make", "gcc", "python",
-     "ansible"],
+     "ansible", "lightdm"],
 
     "default_target": "multi-user.target",
 
-    "units": []
+    "units": ["lightdm.service"]
 }
