@@ -11,7 +11,7 @@
 
     "initramfs-args": ["--no-hostonly"],
 
-    "install-langs": ["en_US"],
+    "install-langs": ["en_US", "ja", "ja_JP"],
 
     "postprocess-script": "treecompose-post.sh",
 
