@@ -1,4 +1,6 @@
 {
+    "gpg_key": "0x1EAAAE0C48027155",
+
     "ref": "puiterwijk-trees/rawhide/x86_64/laptop",
 
     "repos": ["fedora-rawhide"],
