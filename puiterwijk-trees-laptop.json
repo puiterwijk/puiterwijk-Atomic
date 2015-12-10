@@ -66,7 +66,7 @@
      "audit",
      "oddjob-mkhomedir",
      
-     "i3", "i3lock", "i3bar", "git", "make", "gcc", "python",
+     "i3", "i3lock", "git", "make", "gcc", "python",
      "ansible"],
 
     "default_target": "multi-user.target",
