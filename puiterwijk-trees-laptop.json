@@ -64,7 +64,10 @@
      "policycoreutils-python-utils",
      "setools-console",
      "audit",
-     "oddjob-mkhomedir"],
+     "oddjob-mkhomedir",
+     
+     "i3", "i3lock", "i3bar", "git", "make", "gcc", "python",
+     "ansible"],
 
     "default_target": "multi-user.target",
 
