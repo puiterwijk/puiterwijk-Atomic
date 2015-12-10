@@ -4,4 +4,5 @@ baseurl=http://dl.fedoraproject.org/pub/fedora/linux//development/rawhide/$basea
 #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
 enabled=0
 gpgcheck=1
+gpgkey=file:///srv/rpm-ostree/config/81B46521.txt
 metadata_expire=1d
