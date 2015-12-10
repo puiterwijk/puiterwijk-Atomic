@@ -8,6 +8,8 @@
     "selinux": true,
 
     "documentation": false,
+    
+    "boot_location": "new",
 
     "automatic_version_prefix": "rawhide",
 
