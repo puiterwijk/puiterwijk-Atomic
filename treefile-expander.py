@@ -157,7 +157,7 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
         elif package.startswith('-'):
             # Remove this package
             package = package[1:]
-            s.remove(package)
+            out_packages.remove(package)
             print('Package %s removed' % package)
         else:
             out_packages.add(package)
