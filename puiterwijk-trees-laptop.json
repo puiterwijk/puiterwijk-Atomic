@@ -13,7 +13,8 @@
 
     "automatic_version_prefix": "rawhide",
 
-    "initramfs-args": ["--no-hostonly"],
+    "initramfs-args": ["--no-hostonly",
+                       "--persistent-policy=by-uuid"],
 
     "install-langs": ["en_US", "ja", "ja_JP"],
 
