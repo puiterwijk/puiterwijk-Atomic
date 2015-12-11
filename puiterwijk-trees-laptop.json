@@ -29,7 +29,7 @@
 
     "packages": ["atomic",
      "glibc", "nss-altfiles", "shadow-utils", "sssd-client",
-     "@base-x", "@core", "@fonts", "@guest-desktop-agents",
+     "@core", "@base-x", "@fonts", "@@guest-desktop-agents",
      "@hardware-support", "@networkmanager-submodules",
      "fedora-release", "dracut",
      "dracut-config-generic", "kernel",
