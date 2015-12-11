@@ -12,6 +12,12 @@ import librepo
 import sys
 import json
 import tempfile
+import hawkey
+
+# TODO: Make these arguments... sometime
+DEBUG_BROKEN = False
+SKIP_OPTIONAL = True
+
 
 if len(sys.argv) != 2:
     print('Run as: python treefile-expander.py <treefile>.json.in')
@@ -44,14 +50,15 @@ def dl_callback(data, total_to_download, downloaded):
 
 
 def include_package(pkg):
-    if pkg.basearchonly and pkg.basearchonly != 'x86_64':
-        return False
-
-    if pkg.type == libcomps.PACKAGE_TYPE_OPTIONAL:
+    if pkg.type == libcomps.PACKAGE_TYPE_OPTIONAL and SKIP_OPTIONAL:
         # Could be set to True if you want optionals
         return False
 
     return True
+
+
+def is_broken(sack, pkg):
+    return not bool(hawkey.Query(sack).filter(name=pkg.name))
 
 
 tempdir = './temp'
@@ -87,17 +94,26 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
             h.setopt(librepo.LRO_REPOTYPE, librepo.LR_YUMREPO)
             h.setopt(librepo.LRO_CHECKSUM, True)
             h.setopt(librepo.LRO_PROGRESSCB, dl_callback)
-            h.setopt(librepo.LRO_YUMDLIST, ["group"])
+            h.setopt(librepo.LRO_YUMDLIST, ["group", "primary"])
             h.setopt(librepo.LRO_INTERRUPTIBLE, True)
             h.perform(r)
+            repo_info = r.getinfo(librepo.LRR_YUM_REPO)
 
-            # We only want the comps info
+            # Get primary
+            primary_sack = hawkey.Sack()
+            hk_repo = hawkey.Repo(repo)
+            hk_repo.repomd_fn = repo_info['repomd']
+            hk_repo.primary_fn = repo_info['primary']
+            primary_sack.load_repo(hk_repo, load_filelists=False)
+
+            # Get comps
             comps = libcomps.Comps()
-            ret = comps.fromxml_f(r.getinfo(librepo.LRR_YUM_REPO)['group'])
+            ret = comps.fromxml_f(repo_info['group'])
             if ret == -1:
                 print('Error parsing')
-            else:
-                repos[repo] = comps
+                break
+
+            repos[repo] = (comps, primary_sack)
 
     expanded = 0
     in_packages = contents['packages']
@@ -109,22 +125,29 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
             expanded += 1
             found = False
             for repo in repos:
-                comp = repos[repo]
+                comp, sack = repos[repo]
                 try:
                     group = comp.groups[package]
                     found = True
                     added_packages = 0
+                    broken_packages = 0
                     skipped_packages = 0
                     for pkg in group.packages:
                         if include_package(pkg):
-                            added_packages += 1
-                            out_packages.add(pkg.name)
+                            if is_broken(sack, pkg):
+                                if DEBUG_BROKEN:
+                                    print('Broken: %s' % pkg.name)
+                                broken_packages += 1
+                            else:
+                                added_packages += 1
+                                out_packages.add(pkg.name)
                         else:
                             skipped_packages = 1
-                    print('Group %s was expanded to %d (skipped %d)' %
-                          (package,
-                           added_packages,
-                           skipped_packages))
+                    print('Group %s was expanded to %d (skipped %d, broken %d)'
+                          % (package,
+                             added_packages,
+                             skipped_packages,
+                             broken_packages))
                 except KeyError:
                     # Seems this group was not in this file
                     pass
