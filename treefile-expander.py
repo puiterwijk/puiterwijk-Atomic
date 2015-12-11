@@ -161,7 +161,7 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
             print('Package %s removed' % package)
         else:
             out_packages.add(package)
-    contents['packages'] = list(out_packages)
+    contents['packages'] = sorted(list(out_packages))
 
 with open(out_filename, 'w') as f:
     f.write(json.dumps(contents,
