@@ -9,7 +9,7 @@
 
     "documentation": false,
     
-    "boot_location": "new",
+    "boot_location": "both",
 
     "automatic_version_prefix": "rawhide",
 
