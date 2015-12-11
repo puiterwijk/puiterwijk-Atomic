@@ -67,7 +67,7 @@
      "oddjob-mkhomedir",
      
      "i3", "i3lock", "git", "make", "gcc", "python",
-     "ansible", "lightdm", "firewalld"],
+     "ansible", "lightdm", "firewalld", "crpytsetup"],
 
     "default_target": "multi-user.target",
 
