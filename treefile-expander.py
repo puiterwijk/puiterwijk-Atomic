@@ -113,10 +113,18 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
                 try:
                     group = comp.groups[package]
                     found = True
-                    for package in group.packages:
-                        if include_package(package):
-                            print('Adding package %s' % package.name)
-                            out_packages.add(package.name)
+                    added_packages = 0
+                    skipped_packages = 0
+                    for pkg in group.packages:
+                        if include_package(pkg):
+                            added_packages += 1
+                            out_packages.add(pkg.name)
+                        else:
+                            skipped_packages = 1
+                    print('Group %s was expanded to %d (skipped %d)' %
+                          (package,
+                           added_packages,
+                           skipped_packages))
                 except KeyError:
                     # Seems this group was not in this file
                     pass
