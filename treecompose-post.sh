@@ -2,7 +2,7 @@
 
 set -ex
 
-print "All files in /boot:"
+echo "All files in /boot:"
 ls /boot
 
 # See: https://bugzilla.redhat.com/show_bug.cgi?id=1051816
