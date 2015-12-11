@@ -7,7 +7,6 @@
 # all of the @groups in it.
 
 import os
-from pprint import pprint
 import libcomps
 import librepo
 import sys
@@ -36,19 +35,19 @@ def dl_callback(data, total_to_download, downloaded):
         return
     completed = int(downloaded / (total_to_download / PROGRESSBAR_LEN))
     print("[%s%s] %8s/%8s (%s)\r" %
-        ('#'*completed,
-         '-'*(PROGRESSBAR_LEN-completed),
-         int(downloaded),
-         int(total_to_download),
-         data),)
+          ('#'*completed,
+           '-'*(PROGRESSBAR_LEN-completed),
+           int(downloaded),
+           int(total_to_download),
+           data),)
     sys.stdout.flush()
 
 
 def include_package(pkg):
-    if package.basearchonly and package.basearchonly != 'x86_64':
+    if pkg.basearchonly and pkg.basearchonly != 'x86_64':
         return False
 
-    if package.type == libcomps.PACKAGE_TYPE_OPTIONAL:
+    if pkg.type == libcomps.PACKAGE_TYPE_OPTIONAL:
         # Could be set to True if you want optionals
         return False
 
