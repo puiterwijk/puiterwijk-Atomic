@@ -69,7 +69,10 @@
      "oddjob-mkhomedir",
      
      "i3", "i3lock", "git", "make", "gcc", "python",
-     "ansible", "lightdm", "firewalld", "cryptsetup"],
+     "ansible", "lightdm", "firewalld", "cryptsetup",
+     
+     
+     "-dracut-config-rescue"],
 
     "default_target": "multi-user.target",
 
