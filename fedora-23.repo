@@ -1,6 +1,6 @@
 [fedora-23]
 name=Fedora 23 $basearch
-baseurl=http://dl.fedoraproject.org/pub/fedora/linux/releases/23/Everything/$basearch/os/
+baseurl=http://dl.fedoraproject.org/pub/fedora/linux/releases/23/Workstation/$basearch/os/
 #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
 enabled=0
 gpgcheck=1
