@@ -128,6 +128,9 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
     contents['packages'] = list(out_packages)
 
 with open(out_filename, 'w') as f:
-    f.write(json.dumps(contents))
+    f.write(json.dumps(contents,
+                       sort_keys=True,
+                       indent=4,
+                       separators=(',', ': ')))
 
 print('Wrote %s after expanding %d groups' % (out_filename, expanded))
