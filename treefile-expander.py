@@ -154,6 +154,11 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
             if not found:
                 print('Group %s could not be expanded' % package)
                 sys.exit(1)
+        elif package.startswith('-'):
+            # Remove this package
+            package = package[1:]
+            s.remove(package)
+            print('Package %s removed' % package)
         else:
             out_packages.add(package)
     contents['packages'] = list(out_packages)
