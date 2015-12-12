@@ -71,13 +71,14 @@
      
 
 
-     "i3", "i3lock", "git", "make", "gcc", "python",
+     "i3", "i3lock", "git", "make", "gcc", "python", "opencryptoki",
      "ansible", "lightdm", "trousers", "tpm-tools", "tpm-tools-pkcs11",
      "fortune-mod", "mutt", "i3", "i3status", "i3lock", "vim-enhanced",
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pidgin", "pidgin-otr", "pass", "anthy",
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
+     "opencryptoki-tpmtok",
 
 
 
