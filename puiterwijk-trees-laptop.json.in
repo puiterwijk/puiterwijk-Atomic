@@ -71,14 +71,13 @@
      
 
 
-     "i3", "i3lock", "git", "make", "gcc", "python", "opencryptoki",
+     "i3", "i3lock", "git", "make", "gcc", "python",
      "ansible", "lightdm", "trousers", "tpm-tools", "tpm-tools-pkcs11",
      "fortune-mod", "mutt", "i3", "i3status", "i3lock", "vim-enhanced",
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pidgin", "pidgin-otr", "pass", "anthy",
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
-     "opencryptoki-tpmtok",
 
 
 
@@ -87,5 +86,5 @@
 
     "default_target": "multi-user.target",
 
-    "units": ["lightdm.service", "tcsd.service", "pkcsslotd.service"]
+    "units": ["lightdm.service", "tcsd.service"]
 }
