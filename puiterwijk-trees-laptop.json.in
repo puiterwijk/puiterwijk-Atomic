@@ -3,7 +3,7 @@
 
     "ref": "puiterwijk-trees/23/x86_64/laptop",
 
-    "repos": ["fedora-23", "fedora-23-updates"],
+    "repos": ["fedora-23", "fedora-23-updates", "copr-puiterwijk-atomic"],
 
     "selinux": true,
 
