@@ -81,6 +81,10 @@
 
 
 
+     "simple-tpm-pk11",
+
+
+
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
      "-dnf-plugins-core"],
 
