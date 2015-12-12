@@ -68,10 +68,17 @@
      "audit",
      "oddjob-mkhomedir",
      
+
+
      "i3", "i3lock", "git", "make", "gcc", "python",
-     "ansible", "lightdm", "firewalld", "cryptsetup",
-     
-     
+     "ansible", "lightdm",
+     "fortune-mode", "mutt", "i3", "i3status", "i3lock", "vim",
+     "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
+     "bugwarrior", "pyflakes", "python-flake8", "pylint",
+     "python-pep8", "duply", "pidgin", "pidgin-otr", "pass",
+
+
+
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
      "-dnf-plugins-core"],
 
