@@ -72,7 +72,7 @@
 
      "i3", "i3lock", "git", "make", "gcc", "python",
      "ansible", "lightdm",
-     "fortune-mode", "mutt", "i3", "i3status", "i3lock", "vim",
+     "fortune-mod", "mutt", "i3", "i3status", "i3lock", "vim",
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint",
      "python-pep8", "duply", "pidgin", "pidgin-otr", "pass",
