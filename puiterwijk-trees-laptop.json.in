@@ -77,7 +77,7 @@
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pidgin", "pidgin-otr", "pass",
-     "fedora-packager", "mate-terminal",
+     "fedora-packager", "mate-terminal", "scrot", "xbacklight",
 
 
 
