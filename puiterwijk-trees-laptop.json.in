@@ -7,7 +7,7 @@
 
     "selinux": true,
 
-    "documentation": false,
+    "documentation": true,
     
     "boot_location": "both",
 
