@@ -1,6 +1,6 @@
 [copr-puiterwijk-atomic]
 name=Copr repo for puiterwijk-atomic owned by puiterwijk
-baseurl=https://copr-be.cloud.fedoraproject.org/results/puiterwijk/puiterwijk-atomic/fedora-$releasever-$basearch/
+baseurl=https://copr-be.cloud.fedoraproject.org/results/puiterwijk/puiterwijk-atomic/fedora-23-$basearch/
 skip_if_unavailable=False
 gpgcheck=1
 gpgkey=file:///srv/rpm-ostree/config/copr-puiterwijk-atomic.repo
