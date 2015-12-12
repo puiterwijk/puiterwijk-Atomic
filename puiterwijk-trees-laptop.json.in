@@ -84,5 +84,5 @@
 
     "default_target": "multi-user.target",
 
-    "units": ["lightdm.service"]
+    "units": ["lightdm.service", "tcsd.service"]
 }
