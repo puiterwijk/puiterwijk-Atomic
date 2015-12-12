@@ -72,8 +72,7 @@
      "ansible", "lightdm", "firewalld", "cryptsetup",
      
      
-     "-dracut-config-rescue", "-dnf-yum", "-python3-dnf",
-     "-python3-dnf-plugins-core", "-dnf", "-dnf-conf",
+     "-dracut-config-rescue", "-dnf-yum", "-dnf",
      "-dnf-plugins-core"],
 
     "default_target": "multi-user.target",
