@@ -6,3 +6,12 @@ enabled=0
 gpgcheck=1
 gpgkey=file:///srv/rpm-ostree/config/34EC9CBA.txt
 metadata_expire=1d
+
+[fedora-23-updates]
+name=Fedora 23 $basearch Updates
+baseurl=http://dl.fedoraproject.org/pub/fedora/linux/updates/23/$basearch/
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///srv/rpm-ostree/config/34EC9CBA.txt
+metadata_expire=1d
