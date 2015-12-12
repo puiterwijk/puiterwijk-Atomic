@@ -67,6 +67,7 @@
      "setools-console",
      "audit",
      "oddjob-mkhomedir",
+     "cryptsetup",
      
 
 
