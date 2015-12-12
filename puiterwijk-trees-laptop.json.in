@@ -1,9 +1,9 @@
 {
     "gpg_key": "0x1EAAAE0C48027155",
 
-    "ref": "puiterwijk-trees/rawhide/x86_64/laptop",
+    "ref": "puiterwijk-trees/23/x86_64/laptop",
 
-    "repos": ["fedora-rawhide"],
+    "repos": ["fedora-23"],
 
     "selinux": true,
 
@@ -11,7 +11,7 @@
     
     "boot_location": "both",
 
-    "automatic_version_prefix": "rawhide",
+    "automatic_version_prefix": "23",
 
     "initramfs-args": ["--no-hostonly",
                        "--persistent-policy=by-uuid"],
