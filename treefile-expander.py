@@ -108,10 +108,11 @@ with tempfile.TemporaryDirectory('treefile_') as tempdir:
 
             # Get comps
             comps = libcomps.Comps()
-            ret = comps.fromxml_f(repo_info['group'])
-            if ret == -1:
-                print('Error parsing')
-                break
+            if 'group' in repo_info:
+                ret = comps.fromxml_f(repo_info['group'])
+                if ret == -1:
+                    print('Error parsing')
+                    break
 
             repos[repo] = (comps, primary_sack)
 
