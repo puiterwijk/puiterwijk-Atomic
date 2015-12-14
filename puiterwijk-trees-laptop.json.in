@@ -31,7 +31,6 @@
      "glibc", "nss-altfiles", "shadow-utils", "sssd-client",
      "@core", "@base-x", "@fonts", "@guest-desktop-agents",
      "@hardware-support", "@networkmanager-submodules",
-     "@input-method",
      "fedora-release", "dracut",
      "dracut-config-generic", "kernel",
      "dracut-network",
