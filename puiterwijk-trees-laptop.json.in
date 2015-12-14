@@ -80,7 +80,7 @@
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
      "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11",
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "powerline",
-     "tmux-powerline", "vim-plugin-powerline", "powerline-docs", "oathtool",
+     "tmux-powerline", "vim-powerline", "powerline-docs", "oathtool",
      "vim-pysmell", "python-pysmell",
 
 
