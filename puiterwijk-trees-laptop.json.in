@@ -81,7 +81,7 @@
      "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11",
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "powerline",
      "tmux-powerline", "vim-powerline", "powerline-docs", "oathtool",
-     "vim-pysmell", "python-pysmell", "imagemagick",
+     "vim-pysmell", "python-pysmell", "ImageMagick",
 
 
 
