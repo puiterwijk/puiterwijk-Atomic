@@ -83,6 +83,10 @@
      "tmux-powerline", "vim-powerline", "powerline-docs", "oathtool",
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb",
 
+     "gnash", "gnash-cygnal", "gnash-devel", "gnash-extension-dejagnu",
+     "gnash-extension-fileio", "gnash-extension-lirc",
+     "gnash-extension-mysql", "gnash-klash", "gnash-plugin",
+
 
 
      "simple-tpm-pk11",
