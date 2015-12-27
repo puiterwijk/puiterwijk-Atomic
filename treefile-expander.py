@@ -31,7 +31,10 @@ if os.path.exists(out_filename):
 
 contents = {}
 with open(in_filename, 'r') as f:
-    contents = json.loads(f.read())
+    lines = [line for line in f.readlines() if not line.strip().startswith('#')]
+
+    contents = json.loads(''.join(lines))
+
 
 
 def dl_callback(data, total_to_download, downloaded):
