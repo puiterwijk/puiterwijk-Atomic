@@ -68,6 +68,8 @@
      "audit",
      "oddjob-mkhomedir",
      "cryptsetup",
+
+     "initial-setup",
      
 
 
