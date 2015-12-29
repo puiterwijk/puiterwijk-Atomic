@@ -63,10 +63,12 @@ CONFIGDIR="/srv/rpm-ostree/config"
     git show-ref HEAD >>$LOGROOT/clone.log 2>&1
     ./treefile-expander.py puiterwijk-trees-laptop.json.in >$LOGROOT/expander.log 2>&1
     cp puiterwijk-trees-laptop.json $LOGROOT/generated.json
+    # For some weird reason, I need these manual imports...
+    rpm --import 34EC9CBA.txt
+    rpm --import copr-puiterwijk-atomic.gpg
 )
 
 # COMPOSE
-# TODO: Enable compose
 (
     cd /srv/rpm-ostree
     rpm-ostree compose tree --repo=/mnt/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
