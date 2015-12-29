@@ -31,10 +31,6 @@ aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.private /root/rpm_ost
 # (This is needed until BOTO understands AWS_SESSION_TOKEN)
 source /root/aws-keys
 
-# Attach Polipo volume
-aws ec2 attach-volume --volume-id $POLIPO_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
-aws ec2 wait volume-in-use --volume-ids $POLIPO_VOLID
-
 # Import private GPG key
 rm -rf ~/.gnupg/
 gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
@@ -46,6 +42,8 @@ yas3fs -d s3://puiterwijk-atomic/repo/ /mnt/repo/
 yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 
 # Mount the polipo cache volume into /var/cache/polipo
+aws ec2 attach-volume --volume-id $POLIPO_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
+aws ec2 wait volume-in-use --volume-ids $POLIPO_VOLID
 mount /dev/xvdf1 /var/cache/polipo
 
 # Start the caching daemon
