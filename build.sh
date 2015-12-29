@@ -1,5 +1,6 @@
 #!/usr/bin/bash -x
 export LANG=en_US.UTF-8
+export POLIPO_VOLID="vol-34ec8ac7"
 exec >/root/script-setup.log 2>&1
 
 # Needs to be fully updated since the release data won't work with rpm-ostree
@@ -31,7 +32,8 @@ aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.private /root/rpm_ost
 source /root/aws-keys
 
 # Attach Polipo volume
-aws ec2 attach-volume --volume-id vol-34ec8ac7 --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
+aws ec2 attach-volume --volume-id $POLIPO_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
+aws ec2 wait volume-in-use --volume-ids $POLIPO_VOLID
 
 # Import private GPG key
 rm -rf ~/.gnupg/
