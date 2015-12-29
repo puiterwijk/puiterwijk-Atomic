@@ -59,7 +59,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
     git clone $GITURL . >$LOGROOT/clone.log 2>&1
     git show-ref HEAD >>$LOGROOT/clone.log 2>&1
     ./treefile-expander.py puiterwijk-trees-laptop.json.in >$LOGROOT/expander.log 2>&1
-    cp puiterwijk-trees-laptop.json >$LOGROOT/generated.json
+    cp puiterwijk-trees-laptop.json $LOGROOT/generated.json
 )
 
 # COMPOSE
