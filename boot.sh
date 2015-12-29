@@ -1,0 +1,74 @@
+#!/usr/bin/bash -x
+export LANG=en_US.UTF-8
+GITURL="https://github.com/puiterwijk/puiterwijk-Atomic.git"
+
+# Needs to be fully updated since the release data won't work with rpm-ostree
+yum update -y
+
+# Install required packages
+yum install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python2-pip s3cmd
+
+# Install pip
+pip install yas3fs
+pip install awscli
+
+# Retrieve credentials
+export AVAILABILITY_ZONE=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+export AWS_DEFAULT_REGION="${AVAILABILITY_ZONE:0:${#AVAILABILITY_ZONE} - 1}"
+export AWS_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
+export CREDS="$(curl http://169.254.169.254/latest/meta-data/iam/security-credentials/puiterwijk-atomic)"
+export AWS_ACCESS_KEY_ID="$(echo $CREDS | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["AccessKeyId"])')"
+export AWS_SECRET_ACCESS_KEY="$(echo $CREDS | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["SecretAccessKey"])')"
+export AWS_SESSION_TOKEN="$(echo $CREDS | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["Token"])')"
+
+# Retrieve private info
+aws s3 cp s3://puiterwijk-atomic-private/aws-keys /root/aws-keys
+aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.public /root/rpm_ostree/rpm_ostree_gpgkey.public
+aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.private /root/rpm_ostree/rpm_ostree_gpgkey.private
+
+# Switch to permanent AWS keys
+# (This is needed until BOTO understands AWS_SESSION_TOKEN)
+source /root/aws-keys
+
+# Import private GPG key
+rm -rf ~/.gnupg/
+gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
+gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
+
+# Mount s3 volumes
+mkdir /mnt/{atomic,logs}
+yas3fs -d s3://puiterwijk-atomic/repo/ /mnt/repo/
+yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
+
+# TODO: Mount the polipo cache volume into /var/cache/polipo
+# Start the caching daemon
+systemctl start polipo.service
+
+# Prepare the actual composing
+mkdir -p /srv/rpm-ostree/{config,work,cache}
+
+# Setup logging
+LOGROOT="/mnt/logs/`date +%Y-%m-%d-%H:%M`"
+mkdir $LOGROOT
+exec >$LOGROOT/script.log 2>&1
+
+# Prepare composing
+CONFIGDIR="/srv/rpm-ostree/config"
+(
+    cd $CONFIGDIR
+    git clone $GITURL . >$LOGROOT/clone.log 2>&1
+    git show-ref HEAD >>$LOGROOT/clone.log 2>&1
+    ./treefile-expander.py puiterwijk-trees-laptop.json.in >$LOGROOT/expander.log 2>&1
+    cat puiterwijk-trees-laptop.json >$LOGROOT/generated.json
+)
+
+# COMPOSE
+# TODO: Enable compose
+(
+    cd /srv/rpm-ostree
+    # rpm-ostree compose tree --repo=/mnt/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
+)
+
+# Tear everything down again
+# TODO: Enable self-termination
+#aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
