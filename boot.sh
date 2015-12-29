@@ -36,7 +36,7 @@ gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
 gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
 
 # Mount s3 volumes
-mkdir /mnt/{atomic,logs}
+mkdir /mnt/{repo,logs}
 yas3fs -d s3://puiterwijk-atomic/repo/ /mnt/repo/
 yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 
