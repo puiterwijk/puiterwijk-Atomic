@@ -78,5 +78,5 @@ umount /mnt/repo
 # TODO: Unmount polipo cache
 sync
 # TODO: Enable self-termination
-#shutdown --poweroff +10
+#shutdown --poweroff
 #aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
