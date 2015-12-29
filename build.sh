@@ -1,6 +1,6 @@
 #!/usr/bin/bash -x
 export LANG=en_US.UTF-8
-export POLIPO_VOLID="vol-34ec8ac7"
+export DATA_VOLID="vol-d0d7b123"
 exec >/root/script-setup.log 2>&1
 
 # Needs to be fully updated since the release data won't work with rpm-ostree
@@ -32,8 +32,8 @@ aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.private /root/rpm_ost
 source /root/aws-keys
 
 # Attach Polipo cachge volume
-aws ec2 attach-volume --volume-id $POLIPO_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
-aws ec2 wait volume-in-use --volume-ids $POLIPO_VOLID
+aws ec2 attach-volume --volume-id $DATA_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
+aws ec2 wait volume-in-use --volume-ids $DATA_VOLID
 
 # Import private GPG key
 rm -rf ~/.gnupg/
@@ -41,12 +41,12 @@ gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
 gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
 
 # Mount s3 volumes
+yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 mkdir /mnt/{data,logs}
 mount /dev/xvdf1 /mnt/data
 rmdir /var/cache/polipo
 ln -s /mnt/data/polipo /var/cache/polipo
 aws s3 sync s3://puiterwijk-atomic/repo/ /mnt/data/repo/
-yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 
 # Start the caching daemon
 systemctl start polipo.service
@@ -91,7 +91,6 @@ aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/
 # Sync data and write everything out
 sync
 umount /mnt/data
-sync
 
 # TODO: Enable self-termination
 #shutdown --poweroff
