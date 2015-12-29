@@ -6,7 +6,7 @@ GITURL="https://github.com/puiterwijk/puiterwijk-Atomic.git"
 dnf update -y
 
 # Install required packages
-dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python2-pip s3cmd
+dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs s3cmd python-pip
 
 # Install pip
 pip install yas3fs
