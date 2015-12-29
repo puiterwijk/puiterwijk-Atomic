@@ -76,7 +76,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
 # COMPOSE
 (
     cd /srv/rpm-ostree
-    #rpm-ostree compose tree --repo=/mnt/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
+    rpm-ostree compose tree --repo=/mnt/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
 )
 
 # Tear everything down again
