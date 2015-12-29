@@ -30,6 +30,9 @@ aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.private /root/rpm_ost
 # (This is needed until BOTO understands AWS_SESSION_TOKEN)
 source /root/aws-keys
 
+# Attach Polipo volume
+aws ec2 attach-volume --volume-id vol-34ec8ac7 --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
+
 # Import private GPG key
 rm -rf ~/.gnupg/
 gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
@@ -73,7 +76,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
 # COMPOSE
 (
     cd /srv/rpm-ostree
-    rpm-ostree compose tree --repo=/mnt/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
+    #rpm-ostree compose tree --repo=/mnt/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
 )
 
 # Tear everything down again
