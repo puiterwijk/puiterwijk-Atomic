@@ -45,7 +45,7 @@ yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 systemctl start polipo.service
 
 # Prepare the actual composing
-mkdir -p /srv/rpm-ostree/{config,work,cache}
+mkdir -p /srv/rpm-ostree/{config,cache}
 
 # Setup logging
 LOGROOT="/mnt/logs/`date +%Y-%m-%d-%H:%M`"
