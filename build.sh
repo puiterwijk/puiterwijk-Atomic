@@ -50,6 +50,9 @@ mkdir -p /srv/rpm-ostree/{config,work,cache}
 # Setup logging
 LOGROOT="/mnt/logs/`date +%Y-%m-%d-%H:%M`"
 mkdir $LOGROOT
+
+# Remap logging
+exec 6>&1
 exec >$LOGROOT/script.log 2>&1
 mv /root/script-setup.log $LOGROOT/script-setup.log
 
@@ -72,6 +75,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
 # Tear everything down again
 # Sync data and write everything out
 sync
+exec 1>&6 6>&-
 umount /mnt/repo
 umount /mnt/logs
 # TODO: Unmount polipo cache
