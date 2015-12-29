@@ -40,7 +40,9 @@ mkdir /mnt/{repo,logs}
 yas3fs -d s3://puiterwijk-atomic/repo/ /mnt/repo/
 yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 
-# TODO: Mount the polipo cache volume into /var/cache/polipo
+# Mount the polipo cache volume into /var/cache/polipo
+mount /dev/xvdf1 /var/cache/polipo
+
 # Start the caching daemon
 systemctl start polipo.service
 
@@ -75,11 +77,15 @@ CONFIGDIR="/srv/rpm-ostree/config"
 )
 
 # Tear everything down again
+# Stop polipo
+systemctl stop polipo.service
+
 # Sync data and write everything out
 sync
 umount /mnt/repo
-# TODO: Unmount polipo cache
+umount /var/cache/polipo
 sync
+
 # TODO: Enable self-termination
 #shutdown --poweroff
 #aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
