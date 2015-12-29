@@ -20,14 +20,14 @@
 
     "postprocess-script": "treecompose-post.sh",
 
-    "etc-group-members": ["wheel"],
+    "etc-group-members": ["wheel", "docker"],
 
     "ignore-removed-users": ["root"],
     "ignore-removed-groups": ["root"],
     "check-passwd": { "type": "file", "filename": "passwd" },
     "check-groups": { "type": "file", "filename": "group" },
 
-    "packages": ["atomic",
+    "packages": ["atomic", "docker", "python-docker-py",
      "glibc", "nss-altfiles", "shadow-utils", "sssd-client",
      "@core", "@base-x", "@fonts", "@guest-desktop-agents",
      "@hardware-support", "@networkmanager-submodules",
@@ -112,5 +112,5 @@
 
     "default_target": "multi-user.target",
 
-    "units": ["lightdm.service", "tcsd.service"]
+    "units": ["lightdm.service", "tcsd.service", "docker.service"]
 }
