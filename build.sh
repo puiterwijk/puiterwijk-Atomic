@@ -7,7 +7,7 @@ exec >/root/script-setup.log 2>&1
 dnf update -y
 
 # Install required packages
-dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs s3cmd python-pip gnupg
+dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python-pip gnupg
 
 # Install pip
 pip install yas3fs
