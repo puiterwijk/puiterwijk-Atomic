@@ -3,10 +3,10 @@ export LANG=en_US.UTF-8
 GITURL="https://github.com/puiterwijk/puiterwijk-Atomic.git"
 
 # Needs to be fully updated since the release data won't work with rpm-ostree
-yum update -y
+dnf update -y
 
 # Install required packages
-yum install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python2-pip s3cmd
+dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python2-pip s3cmd
 
 # Install pip
 pip install yas3fs
@@ -59,7 +59,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
     git clone $GITURL . >$LOGROOT/clone.log 2>&1
     git show-ref HEAD >>$LOGROOT/clone.log 2>&1
     ./treefile-expander.py puiterwijk-trees-laptop.json.in >$LOGROOT/expander.log 2>&1
-    cat puiterwijk-trees-laptop.json >$LOGROOT/generated.json
+    cp puiterwijk-trees-laptop.json >$LOGROOT/generated.json
 )
 
 # COMPOSE
