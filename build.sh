@@ -1,15 +1,5 @@
 #!/usr/bin/bash -x
 export LANG=en_US.UTF-8
-GITURL="https://github.com/puiterwijk/puiterwijk-Atomic.git"
-dnf install -y git
-CONFIGDIR="/srv/rpm-ostree/config"
-(
-    git clone $GITURL $CONFIGDIR
-)
-
-# Make sure we always get the most recent build script
-source $CONFIGDIR/build.sh
-
 
 # Needs to be fully updated since the release data won't work with rpm-ostree
 dnf update -y
@@ -65,7 +55,6 @@ exec >$LOGROOT/script.log 2>&1
 CONFIGDIR="/srv/rpm-ostree/config"
 (
     cd $CONFIGDIR
-    git clone $GITURL . >$LOGROOT/clone.log 2>&1
     git show-ref HEAD >>$LOGROOT/clone.log 2>&1
     ./treefile-expander.py puiterwijk-trees-laptop.json.in >$LOGROOT/expander.log 2>&1
     cp puiterwijk-trees-laptop.json $LOGROOT/generated.json
