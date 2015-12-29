@@ -1,0 +1,3 @@
+#cloud-config
+runcmd:
+- [ /bin/sh -c, "curl https://raw.githubusercontent.com/puiterwijk/puiterwijk-Atomic/master/boot.sh | bash" ]
