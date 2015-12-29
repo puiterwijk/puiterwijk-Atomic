@@ -53,6 +53,7 @@ mkdir $LOGROOT
 
 # Remap logging
 exec >$LOGROOT/script.log 2>&1
+set -x
 mv /root/script-setup.log $LOGROOT/script-setup.log
 
 # Prepare composing
