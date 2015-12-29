@@ -41,12 +41,12 @@ gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
 gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
 
 # Mount s3 volumes
-mkdir /mnt/{repo,logs}
-yas3fs -d s3://puiterwijk-atomic/repo/ /mnt/repo/
+mkdir /mnt/{data,logs}
+mount /dev/xvdf1 /mnt/data
+rmdir /var/cache/polipo
+ln -s /mnt/data/polipo /var/cache/polipo
+aws s3 sync s3://puiterwijk-atomic/repo/ /mnt/data/repo/
 yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
-
-# Mount the polipo cache volume into /var/cache/polipo
-mount /dev/xvdf1 /var/cache/polipo
 
 # Start the caching daemon
 systemctl start polipo.service
@@ -85,10 +85,12 @@ CONFIGDIR="/srv/rpm-ostree/config"
 # Stop polipo
 systemctl stop polipo.service
 
+# Upload repo
+aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/
+
 # Sync data and write everything out
 sync
-umount /mnt/repo
-umount /var/cache/polipo
+umount /mnt/data
 sync
 
 # TODO: Enable self-termination
