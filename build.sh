@@ -68,5 +68,11 @@ CONFIGDIR="/srv/rpm-ostree/config"
 )
 
 # Tear everything down again
+# Sync data and write everything out
+sync
+umount /mnt/repo
+umount /mnt/logs
+# TODO: Unmount polipo cache
+sync
 # TODO: Enable self-termination
 #aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
