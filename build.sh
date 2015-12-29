@@ -1,5 +1,6 @@
 #!/usr/bin/bash -x
 export LANG=en_US.UTF-8
+exec >/root/script-setup.log 2>&1
 
 # Needs to be fully updated since the release data won't work with rpm-ostree
 dnf update -y
@@ -50,6 +51,7 @@ mkdir -p /srv/rpm-ostree/{config,work,cache}
 LOGROOT="/mnt/logs/`date +%Y-%m-%d-%H:%M`"
 mkdir $LOGROOT
 exec >$LOGROOT/script.log 2>&1
+mv /root/script-setup.log $LOGROOT/script-setup.log
 
 # Prepare composing
 CONFIGDIR="/srv/rpm-ostree/config"
