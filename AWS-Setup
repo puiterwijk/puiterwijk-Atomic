@@ -4,11 +4,13 @@ Some notes to myself on setup.
 S3 setup:
 Bucket: puiterwijk-atomic-private
     Contains aws-keys, rpm_ostree_gpgkey.private, rpm_ostree_gpgkey.public
+    Region: eu-west-1 (Ireland)
     Tags:
         Project: Puiterwijk-Atomic
     Permissions: Default (Owner all permissions, nobody else)
 Bucket: trees.puiterwijk.org
     Contains escrow.pem, index.html, kickstart, rpm_ostree_gpgkey.asc, logs/, repo/
+    Region: eu-west-1 (Ireland)
     Repo/ is pre-initialized manually
     Tags:
         Project: Puiterwijk-Atomic
@@ -20,10 +22,10 @@ Bucket: trees.puiterwijk.org
         Index Document: index.html
 
 
-EC2 instance setup:
+EC2 setup:
 None running by default, up to 1 running during compose
 Using Fedora-23 image "ami-080bd47b"
-5GB pre-formatted ext4 volume "vol-d0d7b123" for Polipo and Repo cache data
+5GB pre-formatted ext4 volume "vol-d0d7b123" in region "eu-west-1c" for Polipo and Repo cache data
 Security group "puiterwijk-atomic-compose-server" with no inbound rules
 An IAM role "puiterwijk-atomic" (ARN "arn:aws:iam::757505437733:role/puiterwijk-atomic")
     Managed Policy: AmazonS3ReadOnlyAccess
