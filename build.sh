@@ -100,7 +100,8 @@ systemctl stop polipo.service
 if [ -f /srv/rpm-ostree/changed ];
 then
     echo "Changed. Syncing"
-    aws s3 sync /mnt/data/repo s3://trees.puiterwijk.org/repo/ --acl public-read
+    rm -rf /mnt/data/repo/tmp/*
+    aws s3 sync /mnt/data/repo s3://trees.puiterwijk.org/repo/ --acl public-read --delete
 else
     echo "Not changed"
 fi
