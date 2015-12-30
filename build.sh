@@ -20,8 +20,6 @@ pip install awscli
     patch -p0 <$CONFIGDIR/yas3fs-sslfix.patch
 )
 
-exit
-
 # Retrieve credentials
 export AVAILABILITY_ZONE=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
 export AWS_DEFAULT_REGION="${AVAILABILITY_ZONE:0:${#AVAILABILITY_ZONE} - 1}"
