@@ -51,7 +51,13 @@ yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 mount /dev/xvdf1 /mnt/data
 rmdir /var/cache/polipo
 ln -s /mnt/data/polipo /var/cache/polipo
-aws s3 sync s3://puiterwijk-atomic/repo/ /mnt/data/repo/
+if [ -f /mnt/data/repo/config ];
+then
+    echo "Already synced"
+else
+    echo "Syncing"
+    aws s3 sync s3://puiterwijk-atomic/repo/ /mnt/data/repo/
+fi
 
 # Start the caching daemon
 systemctl start polipo.service
@@ -83,7 +89,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
 # COMPOSE
 (
     cd /srv/rpm-ostree
-    rpm-ostree compose tree --repo=/mnt/data/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ >$LOGROOT/compose.log 2>&1
+    rpm-ostree compose tree --repo=/mnt/data/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ --touch-if-changes=/srv/rpm-ostree/changed >$LOGROOT/compose.log 2>&1
 )
 
 # Tear everything down again
@@ -91,7 +97,13 @@ CONFIGDIR="/srv/rpm-ostree/config"
 systemctl stop polipo.service
 
 # Upload repo
-aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/ --acl public-read --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+if [ -f /srv/rpm-ostree/changed ];
+then
+    echo "Changed. Syncing"
+    aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/ --acl public-read --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+else
+    echo "Not changed"
+fi
 
 # Sync data and write everything out
 sync
