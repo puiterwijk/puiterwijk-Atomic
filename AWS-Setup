@@ -4,6 +4,7 @@ Some notes to myself on setup.
 S3 setup:
 Bucket: puiterwijk-atomic-private
     Contains aws-keys, rpm_ostree_gpgkey.private, rpm_ostree_gpgkey.public
+    WARNING: TODO: aws-keys contains personal account tokens. Need to create a new IAM user for this!!!!
     Region: eu-west-1 (Ireland)
     Tags:
         Project: Puiterwijk-Atomic
