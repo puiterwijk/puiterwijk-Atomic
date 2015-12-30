@@ -34,6 +34,11 @@ source /root/aws-keys
 # Attach Polipo cachge volume
 aws ec2 attach-volume --volume-id $DATA_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
 aws ec2 wait volume-in-use --volume-ids $DATA_VOLID
+while [ ! -e /dev/xvdf1 ];
+do
+    echo "Waiting for data volume..."
+    sleep 5
+done
 
 # Import private GPG key
 rm -rf ~/.gnupg/
@@ -41,8 +46,8 @@ gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.public
 gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
 
 # Mount s3 volumes
-yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 mkdir /mnt/{data,logs}
+yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
 mount /dev/xvdf1 /mnt/data
 rmdir /var/cache/polipo
 ln -s /mnt/data/polipo /var/cache/polipo
