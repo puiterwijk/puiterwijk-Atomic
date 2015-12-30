@@ -91,7 +91,7 @@ CONFIGDIR="/srv/rpm-ostree/config"
 systemctl stop polipo.service
 
 # Upload repo
-aws s3 sync --acl public-read --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers /mnt/data/repo s3://puiterwijk-atomic/repo/
+aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/ --acl public-read --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
 
 # Sync data and write everything out
 sync
