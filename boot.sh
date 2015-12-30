@@ -9,4 +9,5 @@ mkdir -p $CONFIGDIR
 )
 
 # Make sure we always get the most recent build script
+# (githubusercontent.com is cached)
 source $CONFIGDIR/build.sh
