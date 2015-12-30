@@ -97,6 +97,5 @@ aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/ --acl public-read --gran
 sync
 umount /mnt/data
 
-# TODO: Enable self-termination
-#shutdown --poweroff
-#aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
+# Self-termination
+aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
