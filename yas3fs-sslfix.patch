@@ -1,0 +1,21 @@
+--- __init__.py 2015-12-30 04:24:34.915353411 +0100
++++ __init__.py 2015-12-30 04:25:08.707578017 +0100
+@@ -1,5 +1,18 @@
+ #!/usr/bin/env python
+ 
++# Monkeypatch from https://github.com/boto/boto/issues/2836#issuecomment-68682573
++import ssl
++
++_old_match_hostname = ssl.match_hostname
++
++def _new_match_hostname(cert, hostname):
++   if hostname.endswith('.s3.amazonaws.com'):
++      pos = hostname.find('.s3.amazonaws.com')
++      hostname = hostname[:pos].replace('.', '') + hostname[pos:]
++   return _old_match_hostname(cert, hostname)
++
++ssl.match_hostname = _new_match_hostname
++
+ """
+ Yet Another S3-backed File System, or yas3fs
+ is a FUSE file system that is designed for speed

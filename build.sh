@@ -1,17 +1,26 @@
 #!/usr/bin/bash -x
 export LANG=en_US.UTF-8
 export DATA_VOLID="vol-d0d7b123"
+CONFIGDIR="/srv/rpm-ostree/config"
 exec >/root/script-setup.log 2>&1
 
 # Needs to be fully updated since the release data won't work with rpm-ostree
 dnf update -y
 
 # Install required packages
-dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python-pip gnupg
+dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python-pip gnupg patch
 
 # Install pip
 pip install yas3fs
 pip install awscli
+
+# Apply patches
+(
+    cd /usr/lib/python2.*/site-packages/yas3fs/
+    patch -p0 <$CONFIGDIR/yas3fs-sslfix.patch
+)
+
+exit
 
 # Retrieve credentials
 export AVAILABILITY_ZONE=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
@@ -75,7 +84,6 @@ set -x
 mv /root/script-setup.log $LOGROOT/script-setup.log
 
 # Prepare composing
-CONFIGDIR="/srv/rpm-ostree/config"
 (
     cd $CONFIGDIR
     git show-ref HEAD >>$LOGROOT/clone.log 2>&1
