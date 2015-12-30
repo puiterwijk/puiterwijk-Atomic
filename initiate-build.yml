@@ -9,7 +9,7 @@
   - name: Provision the instance
     register: ec2
     ec2:
-      key_name: test
+      #key_name: test
       wait: false
       group: puiterwijk-atomic-compose-server
       image: ami-080bd47b
