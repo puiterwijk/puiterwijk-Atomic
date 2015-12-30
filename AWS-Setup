@@ -1,0 +1,29 @@
+Some notes to myself on setup.
+
+
+EC2 instance setup:
+None running by default, up to 1 running during compose
+Using Fedora-23 image "ami-080bd47b"
+5GB pre-formatted ext4 volume "vol-d0d7b123" for Polipo and Repo cache data
+Security group "puiterwijk-atomic-compose-server" with no inbound rules
+An IAM role "puiterwijk-atomic" (ARN "arn:aws:iam::757505437733:role/puiterwijk-atomic")
+    Managed Policy: AmazonS3ReadOnlyAccess
+
+
+Lambda Trigger:
+Code in AWS-Lambda-Trigger.py
+Memory: 128MB
+Timeout: 0m20s
+Event sources:
+    Scheduled Event: Nightly
+API Endpoints:
+    /TriggerBuild:
+        Endpoint type: API Gateway
+        API Name: Puiterwijk-Atomic
+        Resource Name: /TriggerBuild
+        Method: POST
+        Deployment Stage: prod
+        Security: Open with access key
+IAM Role:
+    Puiterwijk-Atomic-Trigger
+        Inline-Policy: AWS-Lambda-Trigger.policy
