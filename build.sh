@@ -47,7 +47,7 @@ gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
 
 # Mount s3 volumes
 mkdir /mnt/{data,logs}
-yas3fs -d s3://puiterwijk-atomic/logs/ /mnt/logs/
+yas3fs -d s3://trees.puiterwijk.org/logs/ /mnt/logs/
 mount /dev/xvdf1 /mnt/data
 rmdir /var/cache/polipo
 ln -s /mnt/data/polipo /var/cache/polipo
@@ -56,7 +56,7 @@ then
     echo "Already synced"
 else
     echo "Syncing"
-    aws s3 sync s3://puiterwijk-atomic/repo/ /mnt/data/repo/
+    aws s3 sync s3://trees.puiterwijk.org/repo/ /mnt/data/repo/
 fi
 
 # Start the caching daemon
@@ -100,7 +100,7 @@ systemctl stop polipo.service
 if [ -f /srv/rpm-ostree/changed ];
 then
     echo "Changed. Syncing"
-    aws s3 sync /mnt/data/repo s3://puiterwijk-atomic/repo/ --acl public-read --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+    aws s3 sync /mnt/data/repo s3://trees.puiterwijk.org/repo/ --acl public-read
 else
     echo "Not changed"
 fi
