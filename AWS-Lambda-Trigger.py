@@ -5,6 +5,7 @@ import boto3
 def lambda_handler(event, context):
     ec2 = boto3.resource('ec2')
     res = ec2.create_instances(ImageId="ami-080bd47b",
+                               InstanceType='t2.micro',
                                MinCount=1,
                                MaxCount=1,
                                Placement={
@@ -36,6 +37,10 @@ runcmd:
         {
             "Key": "Name",
             "Value": "Puiterwijk-Atomic-Compose-Triggered"
+        },
+        {
+            "Key": "Project",
+            "Value": "Puiterwijk-Atomic"
         }
     ])
 
