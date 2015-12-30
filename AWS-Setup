@@ -4,10 +4,14 @@ Some notes to myself on setup.
 S3 setup:
 Bucket: puiterwijk-atomic-private
     Contains aws-keys, rpm_ostree_gpgkey.private, rpm_ostree_gpgkey.public
+    Tags:
+        Project: Puiterwijk-Atomic
     Permissions: Default (Owner all permissions, nobody else)
 Bucket: trees.puiterwijk.org
     Contains escrow.pem, index.html, kickstart, rpm_ostree_gpgkey.asc, logs/, repo/
     Repo/ is pre-initialized manually
+    Tags:
+        Project: Puiterwijk-Atomic
     Permissions:
         Owner all permissions
         Everyone List
