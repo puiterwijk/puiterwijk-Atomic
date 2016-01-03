@@ -73,7 +73,7 @@
      
 
 
-     "i3", "i3lock", "git", "make", "gcc", "python",
+     "i3", "i3lock", "git", "make", "gcc", "python", "libreswan",
      "ansible", "lightdm", "trousers", "tpm-tools", "tpm-tools-pkcs11",
      "fortune-mod", "mutt", "i3", "i3status", "vim-enhanced",
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
