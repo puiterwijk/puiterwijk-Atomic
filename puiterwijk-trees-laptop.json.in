@@ -29,7 +29,7 @@
 
     "packages": ["atomic", "docker", "python-docker-py",
      "glibc", "nss-altfiles", "shadow-utils", "sssd-client",
-     "@core", "@base-x", "@fonts", "@guest-desktop-agents",
+     "@core", "@base-x", "@fonts",
      "@hardware-support", "@networkmanager-submodules",
      "fedora-release", "dracut",
      "dracut-config-generic", "kernel",
@@ -52,7 +52,7 @@
      "NetworkManager",
      "hostname", "initscripts", "iproute", "iputils", "less",
      "sos",
-     "openssh-clients", "openssh-server", "passwd", "plymouth",
+     "openssh-clients", "passwd", "plymouth",
      "policycoreutils", "procps-ng", "rootfiles", "rpm",
      "selinux-policy-targeted", "setup", "shadow-utils",
      "sudo", "systemd", "util-linux", "vim-minimal",
@@ -88,10 +88,6 @@
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils", "paprefs",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
-     "gnash", "gnash-cygnal", "gnash-devel", "gnash-extension-dejagnu",
-     "gnash-extension-fileio", "gnash-extension-lirc",
-     "gnash-extension-mysql", "gnash-klash", "gnash-plugin",
-
      "wine", "q4wine", "wine-fonts", "wine-core", "wine-alsa",
      "wine-capi", "wine-docs", "wine-twain", "wine-cms", "wine-openal",
      "wine-opencl", "wine-arial-fonts", "wine-small-fonts",
@@ -100,8 +96,6 @@
      "wine-pulseaudio", "wine-fixedsys-fonts", "wine-filesystem",
      "wine-desktop", "wine-ms-sans-serif-fonts", "wine-systemd",
      "wine-tahoma-fonts-system",
-
-
 
      "simple-tpm-pk11",
 
