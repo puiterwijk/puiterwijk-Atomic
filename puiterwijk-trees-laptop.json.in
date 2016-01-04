@@ -80,7 +80,7 @@
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pidgin", "pidgin-otr", "pass", "anthy",
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
-     "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11",
+     "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11", "ibus-anthy",
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "powerline",
      "tmux-powerline", "vim-powerline", "powerline-docs", "oathtool",
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb",
