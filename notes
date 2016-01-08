@@ -1,3 +1,0 @@
-Random notes:
-
-curl http://trees.puiterwijk.org/rpm_ostree_gpgkey.asc | ostree remote gpg-import puiterwijk-trees --verbose --stdin

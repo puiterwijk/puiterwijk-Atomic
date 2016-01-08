@@ -112,6 +112,9 @@ else
     echo "Not changed"
 fi
 
+# Upload published info
+aws s3 sync /srv/rpm-ostree/config/published s3://trees.puiterwijk.org/ --acl public-read
+
 # Sync data and write everything out
 sync
 umount /mnt/data

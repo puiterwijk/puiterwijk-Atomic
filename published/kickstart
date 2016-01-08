@@ -1,0 +1,44 @@
+# {{ ansible_managed }}
+
+# TODO: Figure out how to bootstrap this, and enable GPG checking here
+# https://github.com/projectatomic/rpm-ostree/issues/190
+ostreesetup --osname=puiterwijk-trees --url=http://trees.puiterwijk.org/repo/ --ref=puiterwijk-trees/23/x86_64/laptop --nogpg
+lang ja_JP.UTF-8 --addsupport=en_US.UTF-8
+keyboard us
+timezone --utc Etc/UTC
+auth --enableshadow
+selinux --enforcing
+firewall --enabled
+# TODO: Root temporarily enabled for testing
+rootpw --plaintext toegang123
+#rootpw --lock
+text
+user --name=puiterwijk --gecos="Patrick Uiterwijk" --groups=wheel --password=toegang123 --plaintext
+xconfig --startxonboot
+autopart --type=lvm --encrypted --passphras=toegang123 --escrowcert=http://trees.puiterwijk.org/escrow.pem --backuppassphrase
+bootloader --boot-drive=sda --location=mbr --password=toegang123
+clearpart --all --drives=sda --initlabel
+halt
+ignoredisk --only-use=sda
+install
+url --url=http://dl.fedoraproject.org/pub/fedora/linux/releases/23/Everything/x86_64/os
+network --activate --bootproto=dhcp --onboot=on 
+
+%packages --excludedocs
+rpm-ostree
+-logwatch
+-sendmail
+-sendmail-cf
+-prelink
+%end
+
+%post
+# Workaround since anaconda doesn't understand rpmostree well
+# https://bugzilla.redhat.com/show_bug.cgi?id=1290888
+sed -e "s/\/home/\/var\/home/" -i /etc/fstab
+echo "tmpfs   /sysroot/tmp         tmpfs   nodev,nosuid,size=2G          0  0" >>/etc/fstab
+rm -f /sysroot/tmp/ks-script-*
+
+# Import GPG key until we figure out how to do that on setup
+curl http://trees.puiterwijk.org/rpm_ostree_gpgkey.asc | ostree remote gpg-import puiterwijk-trees --verbose --stdin
+%end
