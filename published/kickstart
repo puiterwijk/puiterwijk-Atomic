@@ -14,8 +14,6 @@ xconfig --startxonboot
 rootpw --plaintext provision123
 bootloader --boot-drive=sda --location=mbr --password=provision123
 
-
-
 # Partitioning
 ignoredisk --only-use=sda
 zerombr
