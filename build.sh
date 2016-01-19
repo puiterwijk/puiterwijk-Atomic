@@ -114,6 +114,7 @@ mv /root/script-setup.log $LOGROOT/script-setup.log
 # COMPOSE
 (
     cd /srv/rpm-ostree
+    mkdir /mnt/data/repo/{tmp,uncompressed-objects-cache,state}
     rpm-ostree compose tree --repo=/mnt/data/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ --touch-if-changed=/srv/rpm-ostree/changed >$LOGROOT/compose.log 2>&1
 )
 
@@ -127,7 +128,7 @@ df -h /dev/xvdf1
 if [ -f /srv/rpm-ostree/changed ];
 then
     echo "Changed. Syncing"
-    rm -rf /mnt/data/repo/tmp/*
+    rm -rf /mnt/data/repo/{tmp,uncompressed-objects-cache,state}
     aws s3 sync /mnt/data/repo s3://trees.puiterwijk.org/repo/ --acl public-read --delete
 else
     echo "Not changed"
