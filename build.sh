@@ -57,7 +57,7 @@ then
 
     w
     "|fdisk /dev/xvdf
-    mkfs.ext4 /xvdf1
+    mkfs.ext4 /dev/xvdf1
 fi
 
 
