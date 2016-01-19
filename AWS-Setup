@@ -26,7 +26,7 @@ Bucket: trees.puiterwijk.org
 EC2 setup:
 None running by default, up to 1 running during compose
 Using Fedora-23 image "ami-080bd47b"
-5GB pre-formatted ext4 volume "vol-d0d7b123" in region "eu-west-1c" for Polipo and Repo cache data
+10GB volume "vol-d90e452a" in region "eu-west-1c" for Polipo and Repo cache data
 Security group "puiterwijk-atomic-compose-server" with no inbound rules
 An IAM role "puiterwijk-atomic" (ARN "arn:aws:iam::757505437733:role/puiterwijk-atomic")
     Managed Policy: AmazonS3ReadOnlyAccess
