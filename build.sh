@@ -41,11 +41,25 @@ source /root/aws-keys
 # Attach Polipo cachge volume
 aws ec2 attach-volume --volume-id $DATA_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
 aws ec2 wait volume-in-use --volume-ids $DATA_VOLID
-while [ ! -e /dev/xvdf1 ];
+while [ ! -e /dev/xvdf ];
 do
     echo "Waiting for data volume..."
     sleep 5
 done
+sleep 5
+if [ ! -e /dev/xvdf1 ];
+then
+    echo "New drive, reformatting..."
+    echo "n
+    p
+    1
+
+
+    w
+    "|fdisk /dev/xvdf
+    mkfs.ext4 /xvdf1
+fi
+
 
 # Import private GPG key
 rm -rf ~/.gnupg/
@@ -56,6 +70,10 @@ gpg --import /root/rpm_ostree/rpm_ostree_gpgkey.private
 mkdir /mnt/{data,logs}
 yas3fs -d s3://trees.puiterwijk.org/logs/ /mnt/logs/
 mount /dev/xvdf1 /mnt/data
+echo "Current disk usage: "
+df -h /dev/xvdf1
+mkdir -p /mnt/data/polipo
+mkdir -p /mnt/data/repo
 rmdir /var/cache/polipo
 ln -s /mnt/data/polipo /var/cache/polipo
 if [ -f /mnt/data/repo/config ];
@@ -101,6 +119,8 @@ mv /root/script-setup.log $LOGROOT/script-setup.log
 # Tear everything down again
 # Stop polipo
 systemctl stop polipo.service
+echo "Post-compose disk usage: "
+df -h /dev/xvdf1
 
 # Upload repo
 if [ -f /srv/rpm-ostree/changed ];
