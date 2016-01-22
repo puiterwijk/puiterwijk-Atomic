@@ -88,15 +88,6 @@
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils", "paprefs",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
-     "wine", "q4wine", "wine-fonts", "wine-core", "wine-alsa",
-     "wine-capi", "wine-docs", "wine-twain", "wine-cms", "wine-openal",
-     "wine-opencl", "wine-arial-fonts", "wine-small-fonts",
-     "wine-mono", "wine-symbol-fonts", "wine-common",
-     "wine-tahoma-fonts", "wine-courier-fonts", "wine-marlett-fonts",
-     "wine-pulseaudio", "wine-fixedsys-fonts", "wine-filesystem",
-     "wine-desktop", "wine-ms-sans-serif-fonts", "wine-systemd",
-     "wine-tahoma-fonts-system",
-
      "simple-tpm-pk11",
 
 
