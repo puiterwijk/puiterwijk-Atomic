@@ -84,6 +84,11 @@ else
     echo "Syncing"
     aws s3 sync s3://trees.puiterwijk.org/repo/ /mnt/data/repo/
 fi
+if [ ! -f /mnt/data/repo/config ];
+then
+    echo "Seems the repo was not yet initialized"
+    ostree init --repo=/mnt/data/repo/ --mode=archive-z2
+fi
 
 # Start the caching daemon
 systemctl start polipo.service
