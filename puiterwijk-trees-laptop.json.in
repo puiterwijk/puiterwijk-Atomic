@@ -90,7 +90,7 @@
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils", "paprefs",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
-     "simple-tpm-pk11", "secprov",
+     "simple-tpm-pk11",
 
 
 
