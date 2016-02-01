@@ -76,7 +76,7 @@
      "fortune-mod", "mutt", "i3", "i3status", "vim-enhanced",
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
-     "python-pep8", "duply", "pass", "bind-utils", "whois",
+     "python-pep8", "duply", "pass", "bind-utils", "whois", "sshuttle",
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
      "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11", "ibus-kkc",
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "powerline",
