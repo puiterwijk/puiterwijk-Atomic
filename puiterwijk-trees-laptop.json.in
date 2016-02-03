@@ -77,6 +77,7 @@
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pass", "bind-utils", "whois", "sshuttle",
+     "pidgin", "pidgin-otr",
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
      "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11", "ibus-kkc",
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "powerline",
@@ -85,7 +86,7 @@
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-openct", "pcsc-lite-ccid",
      "pcsc-tools", "openct", "dnssec-trigger", "opensc", "firefox",
 
-     "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
+     "pulseaudio", "pulseaudio-libs", "pulseaudio-utils", "paprefs",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
      "simple-tpm-pk11", "selinux-policy-puiterwijk",
