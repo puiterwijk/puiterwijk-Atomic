@@ -29,7 +29,7 @@
 
     "packages": ["atomic", "docker", "python-docker-py",
      "glibc", "nss-altfiles", "shadow-utils", "sssd-client",
-     "@core", "@base-x", "@fonts",
+     "@core", "@base-x", "@fonts", "@virtualization",
      "@hardware-support", "@networkmanager-submodules",
      "fedora-release", "dracut",
      "dracut-config-generic", "kernel",
