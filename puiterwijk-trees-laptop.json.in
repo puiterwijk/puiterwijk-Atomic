@@ -71,12 +71,9 @@
 
 
 
-    "libreoffice-impress",
-
-
      "i3", "i3lock", "git", "make", "gcc", "python", "libreswan",
      "ansible", "lightdm", "trousers", "tpm-tools", "tpm-tools-pkcs11",
-     "fortune-mod", "mutt", "i3", "i3status", "vim-enhanced",
+     "fortune-mod", "mutt", "i3", "i3status", "vim-enhanced", "zsh",
      "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pass", "bind-utils", "whois", "sshuttle",
