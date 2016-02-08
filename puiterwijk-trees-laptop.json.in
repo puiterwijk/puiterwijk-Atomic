@@ -83,7 +83,7 @@
      "tmux-powerline", "vim-powerline", "powerline-docs", "oathtool",
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-openct", "pcsc-lite-ccid",
-     "pcsc-tools", "openct", "dnssec-trigger", "opensc", "firefox",
+     "pcsc-tools", "openct", "dnssec-trigger", "opensc", "firefox", "feh",
 
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
