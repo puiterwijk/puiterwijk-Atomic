@@ -1,0 +1,8 @@
+[rawhide]
+name=Fedora rawhide $basearch
+baseurl=http://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/x86_64/os/
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///srv/rpm-ostree/config/81B46521.txt
+metadata_expire=1d
