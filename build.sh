@@ -133,6 +133,7 @@ df -h /dev/xvdf1
 if [ -f /srv/rpm-ostree/changed ];
 then
     echo "Changed. Syncing"
+    echo "Changed" >$LOGROOT/changed
     rm -rf /mnt/data/repo/{tmp,uncompressed-objects-cache,state}
     aws s3 sync /mnt/data/repo s3://trees.puiterwijk.org/repo/ --acl public-read --delete
 else
