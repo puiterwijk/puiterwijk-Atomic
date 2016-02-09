@@ -82,7 +82,7 @@
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "powerline",
      "tmux-powerline", "vim-powerline", "powerline-docs", "oathtool",
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
-     "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid",
+     "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
      "pcsc-tools", "dnssec-trigger", "opensc", "firefox", "feh",
 
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
