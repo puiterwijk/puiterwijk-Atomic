@@ -112,7 +112,7 @@ mv /root/script-setup.log $LOGROOT/script-setup.log
     ./treefile-expander.py puiterwijk-trees-laptop.json.in >$LOGROOT/expander.log 2>&1
     cp puiterwijk-trees-laptop.json $LOGROOT/generated.json
     # For some weird reason, I need these manual imports...
-    rpm --import 34EC9CBA.txt
+    rpm --import 81B46521.txt
     rpm --import copr-puiterwijk-atomic.gpg
 )
 
