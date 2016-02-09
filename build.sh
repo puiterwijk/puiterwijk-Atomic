@@ -119,7 +119,7 @@ mv /root/script-setup.log $LOGROOT/script-setup.log
 # COMPOSE
 (
     cd /srv/rpm-ostree
-    mkdir /mnt/data/repo/{tmp,uncompressed-objects-cache,state}
+    mkdir -p /mnt/data/repo/{tmp,uncompressed-objects-cache,state}
     rpm-ostree compose tree --repo=/mnt/data/repo --cachedir=/srv/rpm-ostree/cache $CONFIGDIR/puiterwijk-trees-laptop.json --proxy=http://localhost:8123/ --touch-if-changed=/srv/rpm-ostree/changed >$LOGROOT/compose.log 2>&1
 )
 
