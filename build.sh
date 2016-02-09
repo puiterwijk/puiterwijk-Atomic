@@ -148,4 +148,4 @@ sync
 umount /mnt/data
 
 # Self-termination
-aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
+#aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID
