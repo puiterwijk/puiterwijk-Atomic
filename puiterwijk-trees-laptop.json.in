@@ -18,8 +18,6 @@
 
     "install-langs": ["en_US", "ja", "ja_JP"],
 
-    "postprocess-script": "treecompose-post.sh",
-
     "etc-group-members": ["wheel", "docker"],
 
     "ignore-removed-users": ["root"],
