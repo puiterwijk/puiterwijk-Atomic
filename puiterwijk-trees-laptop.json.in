@@ -93,7 +93,7 @@
 
 
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
-     "-dnf-plugins-core"],
+     "-dnf-plugins-core", "-xorg-x11-drv-geode"],
 
     "default_target": "multi-user.target",
 
