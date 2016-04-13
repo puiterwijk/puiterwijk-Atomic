@@ -90,6 +90,10 @@ then
     ostree init --repo=/mnt/data/repo/ --mode=archive-z2
 fi
 
+# Stupid, VERY, stupid rpm-ostree bug workaround
+# https://github.com/projectatomic/rpm-ostree/issues/264
+mkdir -p /mnt/data/repo/refs/remotes
+
 # Start the caching daemon
 systemctl start polipo.service
 
