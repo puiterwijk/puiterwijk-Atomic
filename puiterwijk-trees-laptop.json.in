@@ -68,7 +68,6 @@
      "cryptsetup",
 
 
-
      "i3", "i3lock", "git", "make", "gcc", "python", "libreswan",
      "ansible", "lightdm", "trousers", "tpm-tools", "tpm-tools-pkcs11",
      "fortune-mod", "mutt", "i3", "i3status", "vim-enhanced", "zsh",
@@ -84,6 +83,7 @@
      "pcsc-tools", "dnssec-trigger", "opensc", "firefox", "feh",
 
      # Seems that docker needs this but won't pull it in....
+     # https://bugzilla.redhat.com/show_bug.cgi?id=1327812
      "iptables",
 
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
@@ -91,6 +91,10 @@
 
      "simple-tpm-pk11", "selinux-policy-puiterwijk",
 
+
+     # Guess I need to do langpacks myself...
+     # https://github.com/projectatomic/rpm-ostree/issues/268
+     "langpacks-ja", "glibc-langpack-ja",
 
 
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
