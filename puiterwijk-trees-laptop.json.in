@@ -3,7 +3,7 @@
 
     "ref": "puiterwijk-trees/rawhide/x86_64/laptop",
 
-    "repos": ["rawhide", "copr-puiterwijk-atomic"],
+    "repos": ["rawhide", "copr-puiterwijk-atomic", "copr-mosquito-atom"],
 
     "selinux": true,
 
@@ -81,6 +81,8 @@
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
      "pcsc-tools", "dnssec-trigger", "opensc", "firefox", "feh",
+
+     "atom",
 
      # Seems that docker needs this but won't pull it in....
      # https://bugzilla.redhat.com/show_bug.cgi?id=1327812
