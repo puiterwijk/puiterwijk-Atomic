@@ -4,5 +4,5 @@ baseurl=https://copr-be.cloud.fedoraproject.org/results/mosquito/atom/fedora-raw
 skip_if_unavailable=True
 gpgcheck=1
 gpgkey=file:///srv/rpm-ostree/config/copr-mosquito-atom.repo.gpg
-enabled=1
+enabled=0
 enabled_metadata=1
