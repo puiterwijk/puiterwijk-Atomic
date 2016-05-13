@@ -3,7 +3,7 @@
 
     "ref": "puiterwijk-trees/rawhide/x86_64/laptop",
 
-    "repos": ["rawhide", "copr-puiterwijk-atomic", "copr-mosquito-atom"],
+    "repos": ["rawhide", "copr-puiterwijk-atomic"],
 
     "selinux": true,
 

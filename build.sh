@@ -118,7 +118,6 @@ mv /root/script-setup.log $LOGROOT/script-setup.log
     # For some weird reason, I need these manual imports...
     rpm --import 81B46521.txt
     rpm --import copr-puiterwijk-atomic.gpg
-    rpm --import mosquito-atom-fedora-rawhide.gpg
 )
 
 # COMPOSE
