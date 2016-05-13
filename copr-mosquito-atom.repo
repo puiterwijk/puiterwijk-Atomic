@@ -2,7 +2,7 @@
 name=Copr repo for atom owned by mosquito
 baseurl=https://copr-be.cloud.fedoraproject.org/results/mosquito/atom/fedora-rawhide-$basearch/
 skip_if_unavailable=True
-gpgcheck=1
+gpgcheck=0
 gpgkey=file:///srv/rpm-ostree/config/copr-mosquito-atom.repo.gpg
-enabled=0
+enabled=1
 enabled_metadata=1
