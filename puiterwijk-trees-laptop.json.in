@@ -81,8 +81,7 @@
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
      "pcsc-tools", "dnssec-trigger", "opensc", "firefox", "feh",
-
-     "atom",
+     "usbutils", "pciutils",
 
      # Seems that docker needs this but won't pull it in....
      # https://bugzilla.redhat.com/show_bug.cgi?id=1327812
