@@ -80,8 +80,11 @@
      "tmux-powerline", "vim-powerline", "powerline-docs", "powerline",
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
-     "pcsc-tools", "dnssec-trigger", "opensc", "firefox", "feh",
+     "pcsc-tools", "opensc", "firefox", "feh",
      "usbutils", "pciutils",
+
+     # This is broken, so disable for now
+     "dnssec-trigger",
 
      # Seems that docker needs this but won't pull it in....
      # https://bugzilla.redhat.com/show_bug.cgi?id=1327812
