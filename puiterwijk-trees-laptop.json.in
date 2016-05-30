@@ -83,8 +83,10 @@
      "pcsc-tools", "opensc", "firefox", "feh",
      "usbutils", "pciutils",
 
+     "flatpak", "flatpak-builder",
+
      # This is broken, so disable for now
-     "dnssec-trigger",
+     #"dnssec-trigger",
 
      # Seems that docker needs this but won't pull it in....
      # https://bugzilla.redhat.com/show_bug.cgi?id=1327812
