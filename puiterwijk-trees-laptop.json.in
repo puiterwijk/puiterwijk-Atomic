@@ -83,6 +83,7 @@
      "pcsc-tools", "opensc", "firefox", "feh",
      "usbutils", "pciutils",
 
+     # Let's try this once!
      "flatpak", "flatpak-builder",
 
      # This is broken, so disable for now
@@ -95,16 +96,9 @@
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
-     "simple-tpm-pk11", "selinux-policy-puiterwijk",
-
-
      # Guess I need to do langpacks myself...
      # https://github.com/projectatomic/rpm-ostree/issues/268
      "langpacks-ja", "glibc-langpack-ja",
-
-     # Let's try this once!
-     "xdg-app",
-
 
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
      "-dnf-plugins-core", "-xorg-x11-drv-geode"],
