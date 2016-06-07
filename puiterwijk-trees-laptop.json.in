@@ -81,7 +81,7 @@
      "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
      "pcsc-tools", "opensc", "firefox", "feh",
-     "usbutils", "pciutils",
+     "usbutils", "pciutils", "xonsh",
 
      # Let's try this once!
      "flatpak", "flatpak-builder",
