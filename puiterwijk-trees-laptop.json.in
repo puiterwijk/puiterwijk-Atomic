@@ -71,7 +71,7 @@
      "i3", "i3lock", "git", "make", "gcc", "python", "libreswan",
      "ansible", "lightdm", "trousers", "tpm-tools", "tpm-tools-pkcs11",
      "fortune-mod", "mutt", "i3", "i3status", "vim-enhanced", "zsh",
-     "task", "offlineimap", "msmtp", "python-virtualenvwrapper",
+     "task", "offlineimap", "msmtp", "python2-virtualenvwrapper",
      "bugwarrior", "pyflakes", "python2-flake8", "pylint", "gnutls-utils",
      "python-pep8", "duply", "pass", "bind-utils", "whois", "sshuttle",
      "fedora-packager", "mate-terminal", "scrot", "xbacklight", "ibus",
@@ -99,6 +99,8 @@
      # Guess I need to do langpacks myself...
      # https://github.com/projectatomic/rpm-ostree/issues/268
      "langpacks-en", "glibc-langpack-en",
+
+     # "gstreamer1-plugin-openh264", "mozilla-openh264",
 
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
      "-dnf-plugins-core", "-xorg-x11-drv-geode"],
