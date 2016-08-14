@@ -16,7 +16,7 @@
     "initramfs-args": ["--no-hostonly",
                        "--persistent-policy=by-uuid"],
 
-    "install-langs": ["en", "en_US"],
+    "install-langs": ["en_US", "ja", "ja_JP"],
 
     "etc-group-members": ["wheel", "docker"],
 
@@ -98,7 +98,7 @@
 
      # Guess I need to do langpacks myself...
      # https://github.com/projectatomic/rpm-ostree/issues/268
-     "langpacks-en", "glibc-langpack-en",
+     "langpacks-ja", "glibc-langpack-ja",
 
      # "gstreamer1-plugin-openh264", "mozilla-openh264",
 
