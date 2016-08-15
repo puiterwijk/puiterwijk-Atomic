@@ -93,6 +93,9 @@
      # https://bugzilla.redhat.com/show_bug.cgi?id=1327812
      "iptables",
 
+     # From now on, all signatures will be done by Sigul
+     "sigul",
+
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
