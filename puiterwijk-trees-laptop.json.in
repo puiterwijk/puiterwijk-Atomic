@@ -96,7 +96,7 @@
      # From now on, all signatures will be done by Sigul
      "sigul",
 
-     "usbguard",
+     "usbguard", "usbguard-tools", "usbguard-dbus",
 
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
