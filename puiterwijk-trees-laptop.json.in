@@ -96,7 +96,7 @@
      # From now on, all signatures will be done by Sigul
      "sigul",
 
-     "opencryptoki", "opencryptoki-tpmtok",
+     "opencryptoki", "opencryptoki-tpmtok", "python-nss",
 
      "usbguard", "usbguard-tools", "usbguard-dbus",
 
