@@ -97,6 +97,7 @@
      "sigul",
 
      "opencryptoki", "opencryptoki-tpmtok", "python-nss",
+     "trousers-devel",
 
      "usbguard", "usbguard-tools", "usbguard-dbus",
 
