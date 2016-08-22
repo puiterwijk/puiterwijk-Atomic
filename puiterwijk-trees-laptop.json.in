@@ -96,6 +96,8 @@
      # From now on, all signatures will be done by Sigul
      "sigul",
 
+     "opencryptoki", "opencryptoki-tpmtok",
+
      "usbguard", "usbguard-tools", "usbguard-dbus",
 
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
