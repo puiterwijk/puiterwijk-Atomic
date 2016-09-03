@@ -96,6 +96,8 @@
      # From now on, all signatures will be done by Sigul
      "sigul",
 
+     "tuned",
+
      "opencryptoki", "opencryptoki-tpmtok", "python-nss",
 
      "usbguard", "usbguard-tools", "usbguard-dbus",
@@ -115,5 +117,5 @@
     "default_target": "multi-user.target",
 
     "units": ["lightdm.service", "tcsd.service", "docker.service",
-              "ipsec.service", "usbguard.service"]
+              "ipsec.service", "usbguard.service", "tuned.service"]
 }
