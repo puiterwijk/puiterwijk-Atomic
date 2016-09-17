@@ -1,0 +1,88 @@
+{
+    "gpg_key": "0x1EAAAE0C48027155",
+
+    "ref": "puiterwijk-trees/rawhide/x86_64/vault",
+
+    "repos": ["rawhide", "copr-puiterwijk-atomic"],
+
+    "selinux": true,
+
+    "documentation": false,
+    
+    "boot_location": "both",
+
+    "automatic_version_prefix": "rawhide",
+
+    "initramfs-args": ["--no-hostonly",
+                       "--persistent-policy=by-uuid"],
+
+    "install-langs": ["en_US"],
+
+    "etc-group-members": ["wheel"],
+
+    "packages": [
+     "glibc", "nss-altfiles", "shadow-utils",
+     "@core",
+     "@hardware-support",
+     "fedora-release", "dracut",
+     "dracut-config-generic", "kernel",
+     "dracut-network",
+     "rpm-ostree", "lvm2",
+     "authconfig",
+     "btrfs-progs", "e2fsprogs", "xfsprogs",
+     "grub2", "grub2-efi", "ostree-grub2",
+     "efibootmgr", "shim",
+     "gnupg2", "gnupg",
+     "basesystem",
+     "python",
+     "bash",
+     "xz", "gzip", "bzip2",
+     "coreutils",
+     "which",
+     "nfs-utils",
+     "curl",
+     "iptables-services",
+     "NetworkManager",
+     "hostname", "initscripts", "iproute", "iputils", "less",
+     "sos",
+     "openssh-clients", "passwd", "plymouth",
+     "policycoreutils", "procps-ng", "rootfiles", "rpm",
+     "selinux-policy-targeted", "setup", "shadow-utils",
+     "sudo", "systemd", "util-linux", "vim-minimal",
+     "less",
+     "tar",
+     "rsync",
+     "bash-completion",
+     "tmux", "screen",
+     "strace", "lsof", "tcpdump", "nmap-ncat",
+     "policycoreutils-python",
+     "policycoreutils-python-utils",
+     "setools-console",
+     "audit",
+     "oddjob-mkhomedir",
+     "cryptsetup",
+
+
+     "python",
+     "trousers", "tpm-tools", "tpm-tools-pkcs11",
+     "gnutls-utils",
+     "pcsc-lite", "pcsc-lite-ccid",
+     "pcsc-tools", "opensc",
+     "usbutils",
+
+
+     "sigul", "sigul-server",
+
+     "opencryptoki", "opencryptoki-tpmtok", "python-nss",
+
+     "usbguard",
+
+     "engine_pkcs11", "p11-kit", "p11-kit-trust",
+
+     "-dracut-config-rescue", "-dnf-yum", "-dnf",
+     "-dnf-plugins-core", "-xorg-x11-drv-geode"],
+
+    "default_target": "multi-user.target",
+
+    "units": ["tcsd.service", "usbguard.service", "pcscd.service"]
+}
