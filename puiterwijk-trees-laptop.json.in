@@ -109,7 +109,7 @@
      # https://github.com/projectatomic/rpm-ostree/issues/268
      "langpacks-ja", "glibc-langpack-ja",
 
-     "engine_pkcs11", "p11-kit", "p11-kit-trust",
+     "engine_pkcs11", "p11-kit", "p11-kit-trust", "yubico-piv-tool",
 
      # "gstreamer1-plugin-openh264", "mozilla-openh264",
 
