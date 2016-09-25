@@ -115,6 +115,10 @@ exec >$LOGROOT/script.log 2>&1
 set -x
 mv /root/script-setup.log $LOGROOT/script-setup.log
 
+# Log system information
+cat /etc/redhat-release >$LOGROOT/system-version 2>&1
+yum list installed >$LOGROOT/system-packages 2>&1
+
 # Prepare composing
 (
     cd $CONFIGDIR
