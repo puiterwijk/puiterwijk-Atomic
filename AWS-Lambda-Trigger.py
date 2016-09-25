@@ -2,9 +2,11 @@ from __future__ import print_function
 
 import boto3
 
+ami = 'ami-080bd47b'
+
 def lambda_handler(event, context):
     ec2 = boto3.resource('ec2')
-    res = ec2.create_instances(ImageId="ami-080bd47b",
+    res = ec2.create_instances(ImageId=ami,
                                InstanceType='t2.micro',
                                MinCount=1,
                                MaxCount=1,
