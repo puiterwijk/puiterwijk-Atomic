@@ -2,7 +2,7 @@ from __future__ import print_function
 
 import boto3
 
-ami = 'ami-080bd47b'
+ami = 'ami-16fd6365'
 
 def lambda_handler(event, context):
     ec2 = boto3.resource('ec2')
