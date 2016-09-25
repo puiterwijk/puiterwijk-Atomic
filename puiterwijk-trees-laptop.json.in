@@ -3,7 +3,7 @@
 
     "ref": "puiterwijk-trees/rawhide/x86_64/laptop",
 
-    "repos": ["rawhide", "copr-puiterwijk-atomic"],
+    "repos": ["rawhide"],
 
     "selinux": true,
 
@@ -78,7 +78,7 @@
      "notmuch", "notmuch-mutt", "alsa-utils", "dbus-x11", "ibus-kkc",
      "gcc", "gcc-c++", "mock", "htop", "tmux", "screen", "oathtool",
      "tmux-powerline", "vim-powerline", "powerline-docs", "powerline",
-     "vim-pysmell", "python-pysmell", "ImageMagick", "dwb", "coolkey",
+     "vim-pysmell", "python-pysmell", "ImageMagick", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
      "pcsc-tools", "opensc", "firefox", "feh",
      "usbutils", "pciutils", "xonsh", "ibus-typing-booster",

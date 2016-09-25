@@ -3,7 +3,7 @@
 
     "ref": "puiterwijk-trees/rawhide/x86_64/vault",
 
-    "repos": ["rawhide", "copr-puiterwijk-atomic"],
+    "repos": ["rawhide"],
 
     "selinux": true,
 
