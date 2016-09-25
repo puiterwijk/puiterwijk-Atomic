@@ -26,18 +26,24 @@ export AVAILABILITY_ZONE=$(curl -s http://169.254.169.254/latest/meta-data/place
 export AWS_DEFAULT_REGION="${AVAILABILITY_ZONE:0:${#AVAILABILITY_ZONE} - 1}"
 export AWS_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
 export CREDS="$(curl http://169.254.169.254/latest/meta-data/iam/security-credentials/puiterwijk-atomic)"
+set +x
 export AWS_ACCESS_KEY_ID="$(echo $CREDS | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["AccessKeyId"])')"
 export AWS_SECRET_ACCESS_KEY="$(echo $CREDS | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["SecretAccessKey"])')"
 export AWS_SESSION_TOKEN="$(echo $CREDS | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["Token"])')"
+set -x
 
 # Retrieve private info
+set +x
 aws s3 cp s3://puiterwijk-atomic-private/aws-keys /root/aws-keys
 aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.public /root/rpm_ostree/rpm_ostree_gpgkey.public
 aws s3 cp s3://puiterwijk-atomic-private/rpm_ostree_gpgkey.private /root/rpm_ostree/rpm_ostree_gpgkey.private
+set -x
 
 # Switch to permanent AWS keys
 # (This is needed until BOTO understands AWS_SESSION_TOKEN)
+set +x
 source /root/aws-keys
+set -x
 
 # Attach Polipo cachge volume
 aws ec2 attach-volume --volume-id $DATA_VOLID --instance-id $AWS_INSTANCE_ID --device /dev/xvdf
