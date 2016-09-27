@@ -66,6 +66,7 @@
      "audit",
      "oddjob-mkhomedir",
      "cryptsetup",
+     "desktop-backgrounds",
 
 
      "i3", "i3lock", "git", "make", "gcc", "python", "libreswan",
