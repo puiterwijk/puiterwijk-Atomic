@@ -109,6 +109,9 @@
      "pulseaudio", "pulseaudio-libs", "pulseaudio-utils",
      "pulseaudio-equalizer", "pavumeter", "pavucontrol", "paman",
 
+     # People want me to use vagrant....
+     "vagrant-libvirt", "ansible", "vagrant-sshfs",
+
      # Guess I need to do langpacks myself...
      # https://github.com/projectatomic/rpm-ostree/issues/268
      "langpacks-ja", "glibc-langpack-ja",
