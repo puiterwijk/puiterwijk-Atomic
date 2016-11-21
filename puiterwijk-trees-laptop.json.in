@@ -80,7 +80,7 @@
      "tmux-powerline", "vim-powerline", "powerline-docs", "powerline",
      "vim-pysmell", "python-pysmell", "ImageMagick", "coolkey",
      "pcsc-cyberjack", "pcsc-lite", "pcsc-lite-ccid", "etckeeper",
-     "pcsc-tools", "opensc", "firefox", "feh",
+     "pcsc-tools", "opensc", "firefox", "feh", "python2-gnupg",
      "usbutils", "pciutils", "xonsh", "ibus-typing-booster",
 
      # Let's try this once!
