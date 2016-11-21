@@ -96,9 +96,6 @@
      # From now on, all signatures will be done by Sigul
      "sigul",
 
-     # Let's try this too now
-     "sway",
-
      "tuned",
 
      "opencryptoki", "opencryptoki-tpmtok", "python-nss",
