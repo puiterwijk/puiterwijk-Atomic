@@ -1,6 +1,6 @@
 #!/usr/bin/bash -x
 export LANG=en_US.UTF-8
-export DATA_VOLID="vol-007b117a8c8ec0a80"
+export DATA_VOLID="vol-06fc33316bdd7ef83"
 CONFIGDIR="/srv/rpm-ostree/config"
 exec >/root/script-setup.log 2>&1
 set -x
