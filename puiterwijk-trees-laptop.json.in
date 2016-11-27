@@ -115,6 +115,9 @@
 
      "engine_pkcs11", "p11-kit", "p11-kit-trust", "yubico-piv-tool",
 
+     # Let's try rkt!
+     "rkt", "golang-github-appc-spec",
+
      # I need to test some things with Chromium and Chrome...
      "chromium", "google-chrome-stable",
 
