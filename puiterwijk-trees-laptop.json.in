@@ -3,7 +3,7 @@
 
     "ref": "puiterwijk-trees/rawhide/x86_64/laptop",
 
-    "repos": ["rawhide"],
+    "repos": ["rawhide", "google-chrome"],
 
     "selinux": true,
 
@@ -115,7 +115,8 @@
 
      "engine_pkcs11", "p11-kit", "p11-kit-trust", "yubico-piv-tool",
 
-     # "gstreamer1-plugin-openh264", "mozilla-openh264",
+     # I need to test some things with Chromium and Chrome...
+     "chromium", "google-chrome-stable",
 
      "-dracut-config-rescue", "-dnf-yum", "-dnf",
      "-dnf-plugins-core", "-xorg-x11-drv-geode"],

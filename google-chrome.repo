@@ -1,0 +1,6 @@
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=file:///srv/rpm-ostree/config/google_key.pub
