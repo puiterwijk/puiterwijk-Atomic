@@ -114,6 +114,7 @@
      "langpacks-ja", "glibc-langpack-ja",
 
      "engine_pkcs11", "p11-kit", "p11-kit-trust", "yubico-piv-tool",
+     "kubernetes-client",
 
      # Let's try rkt!
      "rkt", "golang-github-appc-spec",
