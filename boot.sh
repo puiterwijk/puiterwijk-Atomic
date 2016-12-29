@@ -10,4 +10,7 @@ mkdir -p $CONFIGDIR
 
 # Make sure we always get the most recent build script
 # (githubusercontent.com is cached)
-source $CONFIGDIR/build.sh
+source $CONFIGDIR/aws-prepare.sh
+mv /root/script-setup.log $LOGROOT/prepare.log
+source $CONFIGDIR/build.sh >$LOGROOT/build.log 2>&1
+source $CONFIGDIR/aws-teardown.sh >$LOGROOT/teardown.log 2>&1
