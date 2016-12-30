@@ -10,10 +10,10 @@ dnf update -y
 
 # Install required packages
 dnf install -y git rpm-ostree rpm-ostree-toolbox polipo docker fuse fuse-libs python-pip gnupg patch
-# Polipo isn't in F25+. For that, I need to look at squid. Sometime.
+# TODO: Polipo isn't in F25+. For that, I need to look at squid. Sometime.
 
 # Install pip
-pip install yas3fs
+pip install yas3fs  # TODO: This is now in Fedora repos. Good enough?
 pip install awscli
 
 # Apply patches
